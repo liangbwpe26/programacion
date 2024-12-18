@@ -18,9 +18,7 @@ public class EJ13 {
         for (int k = 0 ; k < n; k++) {
             valores[k] = v;
             v += i;
-
         }
-
         // Imprimir todos los valores del array
         System.out.println(Arrays.toString(valores));
     }

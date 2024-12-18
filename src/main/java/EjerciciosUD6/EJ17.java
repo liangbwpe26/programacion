@@ -22,5 +22,6 @@ public class EJ17 {
         } else {
             System.out.println("Los arrays son diferentes");
         }
+        sc.close();
     }
 }

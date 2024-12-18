@@ -18,5 +18,6 @@ public class B_ej7 {
 
         System.out.println("Euros: " + euros);
         System.out.println("Centimos: " + centimos);
+        sc.close();
     }
 }
