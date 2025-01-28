@@ -54,17 +54,22 @@ public class Ejercicio5List {
                     break;
                 }
                 case "3": {
-                    System.out.print("Ingresa el contacto a buscar: ");
-                    String contactoBuscado = scanner.next();
-                    boolean encontrado = false;
-                    for (String[] contacto : agenda) {
-                        if (contactoBuscado.equalsIgnoreCase(contacto[0])) {
-                            System.out.println("Nombre: "+ contacto[0] + ", Teléfono: " + contacto[1]);
-                            encontrado = true;
+                    if (agenda.isEmpty()) {
+                        System.out.println("No hay contactos en la agenda.");
+                        break;
+                    } else {
+                        System.out.print("Ingresa el contacto a buscar: ");
+                        String contactoBuscado = scanner.next();
+                        boolean encontrado = false;
+                        for (String[] contacto : agenda) {
+                            if (contactoBuscado.equalsIgnoreCase(contacto[0])) {
+                                System.out.println("Nombre: " + contacto[0] + ", Teléfono: " + contacto[1]);
+                                encontrado = true;
+                            }
                         }
-                    }
-                    if (!encontrado) {
-                        System.out.println("Contacto no encontrado.");
+                        if (!encontrado) {
+                            System.out.println("Contacto no encontrado.");
+                        }
                     }
                     break;
                 }
@@ -98,6 +103,6 @@ public class Ejercicio5List {
                 }
             }
         }
-        while (opcion != "5");
+        while (!opcion.equals("5"));
     }
 }
