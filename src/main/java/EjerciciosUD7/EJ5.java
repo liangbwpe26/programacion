@@ -17,8 +17,9 @@ public class EJ5 {
         for (char inicial : vocal) {
             vocales.put(inicial, new ArrayList<>());
         }
+
         for (String palabra : palabras) {
-            if (vocales.containsKey(palabra.charAt(0))) {
+            if (vocales.containsKey(palabra.toLowerCase().charAt(0))) {
                 vocales.get(palabra.charAt(0)).add(palabra);
             }
         }

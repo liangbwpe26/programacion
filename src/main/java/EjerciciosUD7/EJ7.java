@@ -18,8 +18,8 @@ public class EJ7 {
         inventario2.put("Naranjas", -10);
         inventario2.put("Manzanas", 50);
 
-        List<String> errores = validarnventario(inventario);
-        List<String> errores2 = validarnventario(inventario2);
+        List<String> errores = validarinventario(inventario);
+        List<String> errores2 = validarinventario(inventario2);
 
         System.out.println("El inventario contiene los siguientes errores:");
         for (String error : errores) {
@@ -31,7 +31,7 @@ public class EJ7 {
         }
     }
 
-   public static List<String> validarnventario (HashMap<String, Integer> valores) {
+   public static List<String> validarinventario (HashMap<String, Integer> valores) {
         List<String> lista = new ArrayList<>();
         for (Map.Entry<String, Integer> entry : valores.entrySet()) {
             if (entry.getKey().isEmpty()) {
