@@ -8,11 +8,15 @@ public class EJ16 {
         System.out.print("Ingresa el tamaño del array: ");
         int tamano = sc.nextInt();
         int[] array = new int[tamano];
-        for (int i = 0; i < tamano; i++) {
+        valoresAleatorios(array);
 
+        for (int valores : array) {
+            System.out.print(valores + " ");
         }
-        System.out.println(array.toString());
     }
-    //public static int valoresAleatorios (int[] array) {
-    //}
+    public static void valoresAleatorios (int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 101);
+        }
+    }
 }

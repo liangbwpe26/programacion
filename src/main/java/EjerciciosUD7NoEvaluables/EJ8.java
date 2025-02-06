@@ -13,15 +13,15 @@ public class EJ8 {
     }
     public static int suma1aN(int n) {
         return n += n;
-    }// Devuelve la suma de enteros de 1 a n
+    }
     public static int producto1aN(int n) {
         int producto = 1;
         for (int i = 1; i <= n; i++) {
-            producto *= i;
+            producto *= n;
         }
         return producto;
-    } // Devuelve el producto de enteros de 1 a n
+    }
     public static double intermedio1aN(int n) {
         return (1 + n) / 2.0;
-    } // Devuelve el valor intermedio entre 1 y n
+    }
 }
