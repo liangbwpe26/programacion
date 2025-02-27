@@ -6,7 +6,7 @@ public class EJ1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int intentos=3;
-        int valor;
+        int valor = 0;
 
         while (intentos != 0) {
             try {
@@ -28,7 +28,7 @@ public class EJ1 {
         if (intentos == 0) {
             System.out.println("Te quedaste sin intentos.");
         } else {
-            System.out.println("Valor introducido correcto.");
+            System.out.println("Valor introducido correcto: "+ valor);
         }
     }
 }
