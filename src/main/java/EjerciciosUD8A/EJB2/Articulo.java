@@ -7,8 +7,9 @@ public class Articulo {
     private double precioSinIVA;
     private double iva;
     private int cuantosQuedan;
-    private double pvp;
     private double descuento;
+    private int venta;
+    private int compra;
 
     Articulo(String nombreArticulo, double precioSinIVA, double iva, int cuantosQuedan) throws IllegalArgumentException {
         if (nombreArticulo == null || nombreArticulo.trim().isEmpty()) {
@@ -75,20 +76,53 @@ public class Articulo {
         return df.format(PVP);
     }
 
-    public void setPvp(double pvp) {
-        this.pvp = pvp;
+    public int getVenta() {
+        return venta;
+    }
+
+    public void setVenta(int venta) {
+        this.venta = venta;
+    }
+
+    public int getCompra() {
+        return compra;
+    }
+
+    public void setCompra(int compra) {
+        this.compra = compra;
     }
 
     public double getPVPDescuento() {
-        DecimalFormat df = new DecimalFormat("##.##");
         double PVP = precioSinIVA * (1 + iva / 100);
         return PVP - (PVP * (descuento / 100));
     }
 
+    public boolean vender() throws IllegalArgumentException {
+        if (venta < 0 || venta > cuantosQuedan) {
+            throw new IllegalArgumentException("Error: La venta no puede ser menor a 0 ni mayor al stock.");
+        }
+
+        if (venta > 0) {
+            cuantosQuedan -= venta;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean comprar() throws IllegalArgumentException {
+        if (compra < 0) {
+            throw new IllegalArgumentException("Error: No puedes ingresar números negativos.");
+        }
+        if (compra > 0) {
+            cuantosQuedan += compra;
+            return true;
+        }
+        return false;
+    }
 
     public void printDelArticulo() {
         DecimalFormat df = new DecimalFormat("##.##");
-        pvp = (precioSinIVA * (1 + iva/100)) + precioSinIVA;
+        double pvp = (precioSinIVA * (iva/100)) + precioSinIVA;
         if (descuento != 0) {
             System.out.println("Articulo: " + nombreArticulo + " | Precio: " + df.format(precioSinIVA)
                     + "€" + " | IVA: " + df.format(iva) + "% | PVP: " + df.format(getPVPDescuento()) + "€");
