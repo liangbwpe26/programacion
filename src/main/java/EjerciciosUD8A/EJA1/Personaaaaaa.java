@@ -1,6 +1,6 @@
 package EjerciciosUD8A.EJA1;
 
-public class Persona {
+public class Personaaaaaa {
     String dni;
     String nombre;
     String apellidos;

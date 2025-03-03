@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class EJ_A1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Persona person1 = new Persona();
-        Persona person2 = new Persona();
+        Personaaaaaa person1 = new Personaaaaaa();
+        Personaaaaaa person2 = new Personaaaaaa();
 
         System.out.println("Ingresa el nombre de la primera persona: ");
         person1.nombre= sc.nextLine();
