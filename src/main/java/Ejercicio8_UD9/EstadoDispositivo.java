@@ -1,6 +1,6 @@
 package Ejercicio8_UD9;
 
-public enum Estado {
+public enum EstadoDispositivo {
     encendido,
     apagado
 }

@@ -1,12 +1,12 @@
 package EjerciciosUD8A.EJB2;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int opcion = 0;
+        int opcion;
+
         try {
             Articulo articulo1 = new Articulo("Pijama", 10, 21, 2);
             //Articulo articulo1 = new Articulo("Camiseta", -5, 3);
@@ -33,48 +33,66 @@ public class Main {
             articulo1.printDelArticulo();
 
             do {
-                System.out.print("Cambios del articulo: ");
+                System.out.println("\nCambios del artículo: ");
                 System.out.println("1- Compra del artículo.");
                 System.out.println("2- Venta del artículo.");
                 System.out.println("3- Salir.");
+                System.out.print("Selecciona una opción: ");
+
+                while (!sc.hasNextInt()) {
+                    System.out.println("Por favor, ingresa un número válido.");
+                    sc.next();
+                }
                 opcion = sc.nextInt();
 
-
-
                 switch (opcion) {
-                    case 1: {
-                        System.out.println("Introduce cuantas compras del articulo has hecho: ");
-                        try {
-                            int compra = sc.nextInt();
+                    case 1:
+                        System.out.println("Introduce cuántas unidades compraste: ");
+                        while (!sc.hasNextInt()) {
+                            System.out.println("Ingresa un número válido.");
+                            sc.next();
+                        }
+                        int compra = sc.nextInt();
+                        if (compra >= 0) {
                             articulo1.setCompra(compra);
-                            break;
-                        } catch (IllegalArgumentException e) {
-                            System.out.println(e.getMessage());
+                            articulo1.comprar();
+                        } else {
+                            System.out.println("Error: No puedes comprar una cantidad negativa.");
                         }
-                    }
-                    case 2: {
-                        try {
-                            System.out.println("Introduce cuantas ventas del artículo has hecho: ");
-                            int venta = sc.nextInt();
-
-                            while (!sc.hasNextInt()) {
-                                System.out.println("Ingresa un número valido.");
-                                venta = sc.nextInt();
-                            }
-                            articulo1.setVenta(venta);
-                            break;
-                        } catch (IllegalArgumentException e) {
-                            System.out.println(e.getMessage());
-                        }
-                    }
-                    case 3: {
-                        System.out.println("Saliendo.");
                         break;
-                    }
+
+                    case 2:
+                        System.out.println("Introduce cuántas unidades vendiste: ");
+                        while (!sc.hasNextInt()) {
+                            System.out.println("Ingresa un número válido.");
+                            sc.next();
+                        }
+                        int venta = sc.nextInt();
+                        if (venta >= 0) {
+                            articulo1.setVenta(venta);
+                            articulo1.vender();
+                        } else {
+                            System.out.println("Error: No puedes vender una cantidad negativa.");
+                        }
+                        break;
+
+                    case 3:
+                        System.out.println("Saliendo del sistema.");
+                        break;
+
+                    default:
+                        System.out.println("Opción no válida. Inténtalo de nuevo.");
                 }
+
             } while (opcion != 3);
 
+            System.out.println("\nEstado final del artículo:");
             articulo1.printDelArticulo();
+
+        } catch (IllegalArgumentException error) {
+            System.out.println("Error: " + error.getMessage());
+        }
+
 
             /*System.out.println("--------------------------");
             System.out.println("Articulo con el cambio: ");
@@ -89,8 +107,5 @@ public class Main {
             articulo1.printDelArticulo();
             */
 
-        } catch (IllegalArgumentException error) {
-            System.out.println(error.getMessage());
-        }
     }
 }

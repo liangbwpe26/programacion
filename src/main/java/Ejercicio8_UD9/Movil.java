@@ -2,11 +2,11 @@ package Ejercicio8_UD9;
 
 public class Movil implements Dispositivo {
     private String nombre;
-    private Estado estado;
+    private EstadoDispositivo estado;
 
     public Movil(String nombre) {
         this.nombre = nombre;
-        this.estado = Estado.apagado;
+        this.estado = EstadoDispositivo.apagado;
     }
 
     public String getNombre() {
@@ -17,11 +17,11 @@ public class Movil implements Dispositivo {
         this.nombre = nombre;
     }
 
-    public Estado getEstado() {
+    public EstadoDispositivo getEstado() {
         return estado;
     }
 
-    public void setEstado(Estado estado) {
+    public void setEstado(EstadoDispositivo estado) {
         this.estado = estado;
     }
 
@@ -32,8 +32,8 @@ public class Movil implements Dispositivo {
 
     @Override
     public void encender() {
-        if (estado == Estado.apagado) {
-            setEstado(Estado.encendido);
+        if (estado == EstadoDispositivo.apagado) {
+            setEstado(EstadoDispositivo.encendido);
         } else {
             System.out.println("El móvil ya esta encendido");
         }
@@ -41,15 +41,15 @@ public class Movil implements Dispositivo {
 
     @Override
     public void apagar() {
-        if (estado == Estado.encendido) {
-            setEstado(Estado.apagado);
+        if (estado == EstadoDispositivo.encendido) {
+            setEstado(EstadoDispositivo.apagado);
         } else {
             System.out.println("El móvil ya esta apagado");
         }
     }
 
     @Override
-    public String estadoDispositivo() {
-        return getEstado().toString();
+    public EstadoDispositivo estadoDispositivo() {
+        return estadoDispositivo();
     }
 }

@@ -8,12 +8,17 @@ public class Main {
         Dispositivo iPhone = new Movil("iPhone 15");
 
         ArrayList<Empleado> empleados = new ArrayList<>();
+        try {
+            empleados.add(new JefeEquipo("", 2000.0, lenovo));
+            empleados.add(new Programador("Ana", 2500.0, lenovo));
+            empleados.add(new Administrativo("Elena", 2600.0, iPhone));
+            empleados.add(new Programador("Carlos", 3000.0, lenovo));
+            empleados.add(new Programador("Pedro", 3200.0, lenovo));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
-        empleados.add(new JefeEquipo("Luis", 2000.0, lenovo));
-        empleados.add(new Programador("Ana", 2500.0, lenovo));
-        empleados.add(new Administrativo("Elena", 2600.0, iPhone));
-        empleados.add(new Programador("Carlos", 3000.0, lenovo));
-        empleados.add(new Programador("Pedro", 3200.0, lenovo));
+
 
         empleados.sort(new ComparaSalario());
 
@@ -23,5 +28,12 @@ public class Main {
             Empleado e = empleados.get(i);
             System.out.println((i + 1) + "- Empleado: " + e.getNombre() + " / Salario: " + e.getSueldoBase() + " euros");
         }
+    }
+    public static ArrayList<String> obtenerNombresEmpleados (ArrayList<Empleado> empleados) {
+        ArrayList<String> nombresEmpleados = new ArrayList<>();
+        for (Empleado e : empleados) {
+            nombresEmpleados.add(e.getNombre());
+        }
+        return nombresEmpleados;
     }
 }
